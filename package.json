@@ -1,0 +1,20 @@
+{
+  "name": "sanitex-site-disinfection",
+  "version": "1.0.0",
+  "description": "Full responsive website copy for disinfection and pest control service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "npx serve ."
+  },
+  "keywords": [
+    "disinfection",
+    "pest-control",
+    "sanitex",
+    "landing-page",
+    "almaty"
+  ],
+  "author": "",
+  "license": "ISC"
+}
