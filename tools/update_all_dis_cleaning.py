@@ -13,8 +13,8 @@ html = html.replace(
     "<title>Dis Cleaning — профессиональная дезинфекция, дезинсекция и клининг</title>"
 )
 html = html.replace(
-    'content="Sanitex — дезинфекция, дезинсекция и дератизация в Алматы и области. Уничтожение клопов, тараканов, крыс. Сертифицированные средства, гарантия, договор. +7 707 906 28 10"',
-    'content="Dis Cleaning (ИП Фёдоров Д.С.) — профессиональная дезинфекция, дезинсекция, дератизация и клининг в Кордае, Алматы и области. Договор, Kaspi Bank, гарантия. +7 707 906 28 10"'
+    'content="Sanitex — дезинфекция, дезинсекция и дератизация в Алматы и области. Уничтожение клопов, тараканов, крыс. Сертифицированные средства, гарантия, договор. +7 707 620 38 13"',
+    'content="Dis Cleaning (ИП Фёдоров Д.С.) — профессиональная дезинфекция, дезинсекция, дератизация и клининг в Кордае, Алматы и области. Договор, Kaspi Bank, гарантия. +7 707 620 38 13"'
 )
 html = html.replace(
     'content="Sanitex, санитекс, дезинфекция Алматы, дезинсекция, уничтожение клопов, уничтожение тараканов, дератизация, СЭС Алматы"',
@@ -38,7 +38,7 @@ schema_orig = """<script type="application/ld+json">
   "image": "images/og-cover.jpg",
   "@id": "https://sanitex.kz/",
   "url": "https://sanitex.kz/",
-  "telephone": "+77079062810",
+  "telephone": "+77076203813",
   "priceRange": "₸₸",
   "address": {
     "@type": "PostalAddress",
@@ -63,7 +63,7 @@ schema_new = """<script type="application/ld+json">
   "legalName": "ИП ФЁДОРОВ ДАНИЛ СЕРГЕЕВИЧ",
   "taxID": "000708501515",
   "image": "images/logo-full.png",
-  "telephone": "+77079062810",
+  "telephone": "+77076203813",
   "priceRange": "₸₸",
   "address": {
     "@type": "PostalAddress",
@@ -113,11 +113,11 @@ hero_orig = """<!-- HERO (фото на фоне, минимум текста) -
       <h1 data-i18n="hero.title">Дезинфекция в&nbsp;<span class="g">Алматы</span></h1>
       <p class="lead" data-i18n="hero.sub">Профессиональное уничтожение вредителей с&nbsp;гарантией</p>
       <div class="hero-actions">
-        <a href="https://wa.me/77079062810" target="_blank" rel="noopener" class="hero-btn wa">
+        <a href="https://wa.me/77076203813" target="_blank" rel="noopener" class="hero-btn wa">
           <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z"/></svg>
           <span data-i18n="hero.btnWa">Написать в WhatsApp</span>
         </a>
-        <a href="tel:+77079062810" class="hero-btn call">
+        <a href="tel:+77076203813" class="hero-btn call">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           <span data-i18n="hero.btnCall">Позвонить</span>
         </a>
@@ -158,11 +158,11 @@ hero_new = """<!-- HERO (Dis Cleaning Brand Style) -->
       <h1 data-i18n="hero.title">Дезинфекция и клининг в&nbsp;<span class="b">Алматы</span> и&nbsp;<span class="g">Кордае</span></h1>
       <p class="lead" data-i18n="hero.sub">Профессиональное уничтожение вредителей с&nbsp;гарантией по официальному договору</p>
       <div class="hero-actions">
-        <a href="https://wa.me/77079062810" target="_blank" rel="noopener" class="hero-btn wa">
+        <a href="https://wa.me/77076203813" target="_blank" rel="noopener" class="hero-btn wa">
           <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z"/></svg>
           <span data-i18n="hero.btnWa">Написать в WhatsApp</span>
         </a>
-        <a href="tel:+77079062810" class="hero-btn call">
+        <a href="tel:+77076203813" class="hero-btn call">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           <span data-i18n="hero.btnCall">Позвонить</span>
         </a>
@@ -230,10 +230,10 @@ foot_orig = """      <!-- Col 1: Brand -->
         <div class="foot-tag" data-i18n="foot.tag">— Дезинфекция нового уровня —</div>
         <p class="foot-desc" data-i18n="foot.desc">Профессиональная дезинфекция, дезинсекция и дератизация в Алматы и области. Сертифицированные средства, гарантия, договор.</p>
         <div class="foot-social">
-          <a href="https://wa.me/77079062810" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <a href="https://wa.me/77076203813" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z"/></svg>
           </a>
-          <a href="tel:+77079062810" aria-label="Позвонить">
+          <a href="tel:+77076203813" aria-label="Позвонить">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           </a>
         </div>
@@ -263,10 +263,10 @@ foot_new = """      <!-- Col 1: Brand & Requisites -->
         </div>
 
         <div class="foot-social" style="margin-top: 18px;">
-          <a href="https://wa.me/77079062810" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <a href="https://wa.me/77076203813" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z"/></svg>
           </a>
-          <a href="tel:+77079062810" aria-label="Позвонить">
+          <a href="tel:+77076203813" aria-label="Позвонить">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           </a>
         </div>
@@ -290,9 +290,9 @@ with open('js/main.js', 'r', encoding='utf-8') as f:
 config_orig = """// ================= GLOBAL CONFIGURATION =================
 const CONFIG = {
   companyName: 'Sanitex',
-  phoneDisplay: '+7 707 906 28 10',
-  phoneRaw: '+77079062810',
-  whatsappNumber: '77079062810',
+  phoneDisplay: '+7 707 620 38 13',
+  phoneRaw: '+77076203813',
+  whatsappNumber: '77076203813',
   city: 'Алматы',
   saveLeadsLocally: true, // Stores all submissions in localStorage for admin review
   webhookUrl: ''          // Optional: Add Telegram Bot / CRM webhook endpoint here
@@ -308,9 +308,9 @@ const CONFIG = {
   bik: 'CASPKZKA',
   kbe: '19',
   iban: 'KZ44722S000019492073',
-  phoneDisplay: '+7 707 906 28 10',
-  phoneRaw: '+77079062810',
-  whatsappNumber: '77079062810',
+  phoneDisplay: '+7 707 620 38 13',
+  phoneRaw: '+77076203813',
+  whatsappNumber: '77076203813',
   city: 'Кордай / Алматы',
   saveLeadsLocally: true, // Stores all submissions in localStorage for admin review
   webhookUrl: ''          // Optional: Add Telegram Bot / CRM webhook endpoint here

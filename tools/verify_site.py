@@ -3,10 +3,12 @@ import re
 
 with open('js/main.js', 'r', encoding='utf-8') as f:
     js = f.read()
+with open('js/interactions.js', 'r', encoding='utf-8') as f:
+    js += f.read()
 
 total_errors = 0
 
-for page in ['index.html', 'price.html']:
+for page in ['index.html', 'objects.html']:
     print(f"\n=== VERIFYING {page} ===")
     with open(page, 'r', encoding='utf-8') as f:
         html = f.read()
@@ -47,4 +49,3 @@ for page in ['index.html', 'price.html']:
     total_errors += errors
 
 print(f"\nTotal verification finished with {total_errors} errors.")
-

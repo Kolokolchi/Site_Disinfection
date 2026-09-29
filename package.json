@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "serve": "npx serve ."
+    "serve": "npx serve .",
+    "test": "playwright test",
+    "sync-layout": "python tools/sync_layout.py"
   },
   "keywords": [
     "disinfection",
@@ -16,5 +18,8 @@
     "almaty"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
 }

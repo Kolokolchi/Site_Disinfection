@@ -1,0 +1,29 @@
+.pest-launcher{position:fixed;right:20px;bottom:82px;z-index:860;width:60px;height:60px;display:grid;place-items:center;border:1px solid #a8e2c7;border-radius:50%;background:#123e31;color:#c5f780;box-shadow:0 6px 24px #163e3133;cursor:pointer;transition:transform .2s}
+.pest-launcher:hover{transform:scale(1.07)}
+.pest-launcher svg{width:38px;height:38px}
+.pest-launcher:focus-visible,.pest-game button:focus-visible{outline:3px solid #e3a321;outline-offset:4px}
+.pest-game{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#eef7eced;color:#123e31;font-family:Inter,Arial,sans-serif;overflow:hidden}
+.pest-game::backdrop{background:#123e3126;backdrop-filter:blur(3px)}
+.pest-game[open]{display:flex;flex-direction:column}
+.pest-game__bar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px max(24px,env(safe-area-inset-right));border-bottom:1px solid #123e3120;background:#fff}
+.pest-game__brand{font-size:11px;font-weight:800;letter-spacing:.14em}
+.pest-game__title{font-size:22px;font-weight:800;margin:5px 0 0;line-height:1.2}
+.pest-game__close{width:44px;height:44px;flex-shrink:0;border:1px solid #d2dfd6;border-radius:50%;background:white;color:#123e31;font-size:28px;cursor:pointer}
+.pest-game__stats{display:flex;justify-content:center;gap:32px;padding:18px 16px 8px;text-align:center}
+.pest-game__stats span{display:block;font-size:11px;color:#52645a;margin-top:3px}
+.pest-game__stats strong{font-size:25px;font-variant-numeric:tabular-nums}
+.pest-game__hint{text-align:center;font-size:13px;margin:6px 16px 12px;color:#52645a}
+.pest-game__arena{position:relative;flex:1;min-height:60px;overflow:hidden;cursor:crosshair;background-image:radial-gradient(#123e3115 1px,transparent 1px);background-size:26px 26px}
+.pest-game__bug{position:absolute;left:0;top:0;width:56px;height:56px;padding:4px;border:0;background:transparent;cursor:crosshair;touch-action:manipulation;will-change:transform;-webkit-tap-highlight-color:transparent}
+.pest-game__bug svg{display:block;width:100%;height:100%;filter:drop-shadow(0 3px 2px #123e3125)}
+.pest-game__bug:hover svg{filter:drop-shadow(0 0 5px #76ac40)}
+.pest-game__hit{position:absolute;font-weight:900;font-size:24px;color:#24733e;pointer-events:none;animation:pest-hit .5s ease-out forwards}
+.pest-game__finish{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px;gap:16px}
+.pest-game__finish[hidden]{display:none}
+.pest-game [data-status]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.pest-game__finish h3{font-size:clamp(24px,5vw,44px);margin:0;color:#123e31}
+.pest-game__finish p{margin:0;max-width:340px;color:#52645a;line-height:1.6}
+.pest-game__again{padding:15px 25px;border:0;border-radius:30px;background:#123e31;color:#fff;font:700 15px Inter,Arial,sans-serif;cursor:pointer}
+@keyframes pest-hit{to{transform:translateY(-28px);opacity:0}}
+@media(max-width:767px){.pest-launcher{right:14px;bottom:calc(140px + env(safe-area-inset-bottom,0px));width:54px;height:54px}.pest-game__bar{padding:14px 16px}.pest-game__title{font-size:18px}.pest-game__stats{gap:22px}.pest-game__arena{margin-bottom:env(safe-area-inset-bottom,0px)}}
+@media(prefers-reduced-motion:reduce){.pest-launcher{transition:none}.pest-game__hit{animation:none}}

@@ -36,7 +36,7 @@ def generate_page(s):
 
     # WhatsApp message URL encoded
     wa_msg = f"Здравствуйте! Хочу заказать услугу: {title} в Алматы / Кордае. Подскажите, пожалуйста, стоимость и свободное время мастера."
-    wa_href = f"https://wa.me/77079062810?text={urllib.parse.quote(wa_msg)}"
+    wa_href = f"https://wa.me/77076203813?text={urllib.parse.quote(wa_msg)}"
 
     # Generate Related Services (pick 4 different services)
     related_items = [x for x in SERVICES_DATA if x['slug'] != slug][:4]
@@ -87,7 +87,7 @@ def generate_page(s):
                     "@type": "HomeAndConstructionBusiness",
                     "name": "Dis Cleaning",
                     "legalName": "ИП ФЁДОРОВ ДАНИЛ СЕРГЕЕВИЧ",
-                    "telephone": "+77079062810",
+                    "telephone": "+77076203813",
                     "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "ул. Байдибек Баба, 219",
@@ -119,7 +119,7 @@ def generate_page(s):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>{title} в Алматы и Кордае — Dis Cleaning | Договор и гарантия 6 мес.</title>
-  <meta name="description" content="{lead} Выезд мастера в день обращения. Тел: +7 707 906 28 10.">
+  <meta name="description" content="{lead} Выезд мастера в день обращения. Тел: +7 707 620 38 13.">
   <meta name="keywords" content="{title}, {name}, дезинфекция, дезинсекция, дератизация, Алматы, Кордай, ИП Федоров, Dis Cleaning, СЭС">
   <link rel="canonical" href="https://sanitex.kz/services/{slug}">
 
@@ -178,9 +178,9 @@ def generate_page(s):
           <button type="button" data-lang="ru" class="active">RU</button>
           <button type="button" data-lang="kz">KZ</button>
         </div>
-        <a href="tel:+77079062810" class="phone-btn">
+        <a href="tel:+77076203813" class="phone-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          <span>+7&nbsp;707&nbsp;906&nbsp;28&nbsp;10</span>
+          <span>+7&nbsp;707&nbsp;620&nbsp;38&nbsp;13</span>
         </a>
         <button type="button" class="burger" id="burgerBtn" aria-label="Меню">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -240,8 +240,8 @@ def generate_page(s):
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.419-.101.824z"/></svg>
               <span>Консультация в WhatsApp</span>
             </a>
-            <a href="tel:+77079062810" class="btn btn-out btn-lg" style="color:#fff; border-color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.08);">
-              <span>+7 707 906 28 10</span>
+            <a href="tel:+77076203813" class="btn btn-out btn-lg" style="color:#fff; border-color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.08);">
+              <span>+7 707 620 38 13</span>
             </a>
           </div>
         </div>
@@ -683,7 +683,7 @@ def generate_page(s):
           <div class="fc-list">
             <div class="fc-item">
               <span class="fc-lbl">Телефон:</span>
-              <a href="tel:+77079062810" class="fc-val">+7 707 906 28 10</a>
+              <a href="tel:+77076203813" class="fc-val">+7 707 620 38 13</a>
             </div>
             <div class="fc-item">
               <span class="fc-lbl">WhatsApp:</span>
@@ -754,7 +754,7 @@ def generate_page(s):
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         <span data-i18n="mbb.team">Команда</span>
       </a>
-      <a href="tel:+77079062810" class="mbb-btn r">
+      <a href="tel:+77076203813" class="mbb-btn r">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         <span data-i18n="mbb.call">Звонок</span>
       </a>
@@ -864,7 +864,7 @@ def generate_page(s):
       if (d.object) msg += `🏠 *Объект:* ${{d.object}}%0A`;
       if (d.comment) msg += `💬 *Комментарий:* ${{d.comment}}%0A`;
 
-      window.open(`https://wa.me/77079062810?text=${{msg}}`, '_blank');
+      window.open(`https://wa.me/77076203813?text=${{msg}}`, '_blank');
       if (typeof showToast === 'function') showToast();
       f.reset();
       return false;
@@ -886,7 +886,7 @@ def generate_page(s):
       if (d.city) msg += `🏙 *Город:* ${{d.city}}%0A`;
       if (d.object) msg += `🏠 *Объект:* ${{d.object}}%0A`;
 
-      window.open(`https://wa.me/77079062810?text=${{msg}}`, '_blank');
+      window.open(`https://wa.me/77076203813?text=${{msg}}`, '_blank');
       if (typeof showToast === 'function') showToast();
       closeServiceModal();
       f.reset();

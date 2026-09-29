@@ -17,3 +17,9 @@ desktop.ini
 
 # Temporary backups
 backup/
+
+# Browser verification output and local customer data
+test-results/
+playwright-report/
+artifacts/
+leads.json

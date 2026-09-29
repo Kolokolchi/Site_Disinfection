@@ -16,9 +16,9 @@ new_js = f"""/**
 // ================= GLOBAL CONFIGURATION =================
 const CONFIG = {{
   companyName: 'Sanitex',
-  phoneDisplay: '+7 707 906 28 10',
-  phoneRaw: '+77079062810',
-  whatsappNumber: '77079062810',
+  phoneDisplay: '+7 707 620 38 13',
+  phoneRaw: '+77076203813',
+  whatsappNumber: '77076203813',
   city: 'Алматы',
   saveLeadsLocally: true, // Stores all submissions in localStorage for admin review
   webhookUrl: ''          // Optional: Add Telegram Bot / CRM webhook endpoint here
@@ -279,7 +279,7 @@ function submitOrder(e) {{
   if (d.area) msg += `📐 Площадь: ${{d.area}} м²%0A`;
   if (d.comment) msg += `💬 Комментарий: ${{d.comment}}%0A`;
 
-  const waPhone = CONFIG.whatsappNumber || '77079062810';
+  const waPhone = CONFIG.whatsappNumber || '77076203813';
   window.open(`https://wa.me/${{waPhone}}?text=${{msg}}`, '_blank');
 
   showToast();
