@@ -10,12 +10,15 @@ from objects_data import GROUPS
 from service_copy import COPY
 from services_data import SERVICES_DATA
 from sync_layout import element
+from seo import load_config, transform
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def write(name, content):
     p = ROOT / name
     p.parent.mkdir(parents=True, exist_ok=True)
+    if p.suffix == '.html':
+        content = transform(content, name, load_config(ROOT))
     p.write_text('\n'.join(line.rstrip() for line in content.splitlines())+'\n', encoding='utf-8')
 
 def section(title, text):
@@ -36,7 +39,7 @@ def page(path, title, description, body, prefix='../', image='hero-business.jpg'
     schema = json.dumps({'@context':'https://schema.org','@type':'WebPage','name':title,'description':description,'inLanguage':'ru'},ensure_ascii=False)
     write(path, f'''<!DOCTYPE html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(title)} — Dis Cleaning, Алматы и Кордай</title><meta name="description" content="{e(description)}">
+<title>{e(title)} — Dis Cleaning, Алматы</title><meta name="description" content="{e(description)}">
 <meta property="og:title" content="{e(title)} — Dis Cleaning"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:image" content="{prefix}images/{image}">
 <link rel="icon" href="{prefix}images/favicon.png"><link rel="stylesheet" href="{prefix}css/style.css"><link rel="stylesheet" href="{prefix}css/theme.css"><script type="application/ld+json">{schema}</script></head>
 <body><a href="#main-content" class="skip-link">К содержимому</a>{head}<main id="main-content">{body}</main>{tail}
@@ -49,7 +52,7 @@ def hero(label, title, desc, img, subject, prefix='../', focus=None):
     visual=f'<div class="detail-photo"><img src="{prefix}images/{img}" alt="{e(title)}" width="1200" height="800"></div>'
     if focus:
         visual=f'<aside class="object-focus"><span class="focus-symbol" aria-hidden="true">↗</span><span class="s-eyebrow">Индивидуальный план</span><h2>В фокусе работы</h2><p>{e(focus)}</p><div class="focus-footer"><span>01 / Обсуждение задачи</span><span>02 / Согласование работ</span><span>03 / Обработка и рекомендации</span></div></aside>'
-    return f'''<section class="detail-hero"><div class="wrap detail-hero-grid"><div><span class="s-eyebrow">{e(label)} · Алматы и Кордай</span><h1>{e(title)}</h1><p class="detail-lead">{e(desc)}</p><div class="detail-actions"><button class="btn btn-green" onclick="openServiceModal('{e(subject)}')">Обсудить задачу ↗</button><a class="detail-phone" href="tel:+77076203813">+7 707 620 38 13</a></div><p class="detail-caption">Разовый выезд или регулярное обслуживание</p></div>{visual}</div></section>'''
+    return f'''<section class="detail-hero"><div class="wrap detail-hero-grid"><div><span class="s-eyebrow">{e(label)} · Алматы</span><h1>{e(title)}</h1><p class="detail-lead">{e(desc)}</p><div class="detail-actions"><button class="btn btn-green" onclick="openServiceModal('{e(subject)}')">Обсудить задачу ↗</button><a class="detail-phone" href="tel:+77076203813">+7 707 620 38 13</a></div><p class="detail-caption">Разовый выезд или регулярное обслуживание</p></div>{visual}</div></section>'''
 
 def cards(prefix='objects/'):
     return '<div class="object-grid">'+''.join(f'<a class="object-card" href="{prefix}{slug}.html"><div class="object-card-photo"><img src="images/objects/{"medicine-clinic" if slug == "medicine" else slug}.jpg" alt="{title}" width="1200" height="900" loading="lazy" decoding="async"></div><div class="object-card-body"><span class="object-number">{i:02}</span><h3>{title}</h3><p>{", ".join(x[1].lower() for x in rows)}</p><span class="object-link">{len(rows)} {"типов" if len(rows) >= 5 else "типа"} объектов <span>↗</span></span></div></a>' for i,(slug,title,desc,rows) in enumerate(GROUPS,1))+'</div>'
@@ -63,7 +66,7 @@ def build():
     services=element(src,r'<section id="services"','section')
     src=src.replace(services,services+'\n'+catalog)
     write('index.html',src)
-    page('objects.html','Каталог объектов','Обработка квартир, организаций и коммерческих объектов в Алматы, Кордае и области. Выберите тип объекта и подходящее обслуживание.',crumbs([('Объекты',None)],'')+f'<section class="catalog-heading"><div class="wrap"><span class="s-eyebrow">Для дома и бизнеса</span><h1>Пространства, о которых<br>мы заботимся</h1><p>{len(GROUPS)} направлений. {sum(len(g[3]) for g in GROUPS)} типов объектов. Решение под ваши помещения и график.</p></div></section><section class="catalog-body"><div class="wrap">'+cards()+'</div></section>'+cta('Подбор обработки объекта'),prefix='')
+    page('objects.html','Каталог объектов','Обработка квартир, организаций и коммерческих объектов в Алматы. Выберите тип объекта и подходящее обслуживание.',crumbs([('Объекты',None)],'')+f'<section class="catalog-heading"><div class="wrap"><span class="s-eyebrow">Для дома и бизнеса</span><h1>Пространства, о которых<br>мы заботимся</h1><p>{len(GROUPS)} направлений. {sum(len(g[3]) for g in GROUPS)} типов объектов. Решение под ваши помещения и график.</p></div></section><section class="catalog-body"><div class="wrap">'+cards()+'</div></section>'+cta('Подбор обработки объекта'),prefix='')
     for slug,title,desc,rows in GROUPS:
         img='hero-restaurant.jpg' if slug in ('food','retail','hospitality') else 'hero-business.jpg'
         listing='<div class="facility-list">'+''.join(f'<a class="facility-row" href="{s}.html"><span><h2>{t}</h2><p>{d}</p></span><span aria-hidden="true">↗</span></a>' for s,t,d,z,p in rows)+'</div>'

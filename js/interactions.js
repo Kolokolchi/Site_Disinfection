@@ -1,15 +1,3 @@
-// Resolve shared game assets from this script so nested pages work as well.
-(() => {
-  const base = new URL('.', document.currentScript.src);
-  const style = document.createElement('link');
-  style.rel = 'stylesheet';
-  style.href = new URL('../css/pest-game.css', base).href;
-  document.head.append(style);
-  const script = document.createElement('script');
-  script.src = new URL('pest-game.js', base).href;
-  document.head.append(script);
-})();
-
 // Shared behavior for the homepage, price list and all service pages.
 Object.assign(i18n.ru, {
   'nav.objects': 'Объекты',
@@ -23,7 +11,7 @@ Object.assign(i18n.ru, {
   'b2b.l5': 'Согласованный доступ к каждой зоне',
   'b2b.l6': 'Рекомендации после обработки',
   'faq.1.a': 'Порядок подготовки, время отсутствия людей и животных, проветривание и уборка зависят от метода и применяемого средства. Перед выездом специалист передаст инструкцию для вашего объекта.',
-  'foot.desc': 'Дезинфекция, контроль вредителей и клининг. Для дома и бизнеса в Алматы, Кордае и области.'
+  'foot.desc': 'Дезинфекция, контроль вредителей и клининг. Для дома и бизнеса в Алматы.'
 });
 Object.assign(i18n.kz, {
   'nav.objects': 'Нысандар',
@@ -37,8 +25,8 @@ Object.assign(i18n.kz, {
   'b2b.l5': 'Әр аймаққа кіру тәртібін келісу',
   'b2b.l6': 'Өңдеуден кейінгі ұсыныстар',
   'faq.1.a': 'Дайындық, адамдар мен жануарлардың болмау уақыты, желдету және тазалау тәртібі қолданылатын әдіс пен құралға байланысты. Маман нысаныңызға арналған нұсқаулық береді.',
-  'foot.desc': 'Дезинфекция, зиянкестермен күрес және клининг. Алматы, Қордай және облыстағы үй мен бизнеске арналған.',
-  'slide.1.eyebrow': 'DIS CLEANING · АЛМАТЫ ЖӘНЕ ҚОРДАЙ',
+  'foot.desc': 'Дезинфекция, зиянкестермен күрес және клининг. Алматыдағы үй мен бизнеске арналған.',
+  'slide.1.eyebrow': 'DIS CLEANING · АЛМАТЫ',
   'slide.1.title': 'Таза кеңістік.<br>Күн сайынғы тыныштық.',
   'slide.1.desc': 'Дезинфекция, зиянкестермен күрес және клининг.<br>Үйіңіз бен бизнесіңіз үшін.',
   'slide.1.cta': 'Қызметті таңдау ↗',
@@ -50,12 +38,12 @@ Object.assign(i18n.kz, {
   'slide.3.title': 'Үйдегі тәртіп.<br>Ауладағы жайлылық.',
   'slide.3.desc': 'Бөлмелерді, шаруашылық жайлар мен аумақты өңдеу.<br>Міндетіңіз бен маусымға сай шешім.',
   'slide.3.cta': 'Жеке үй үшін ↗',
-  'slider.location': 'Алматы · Қордай · Облыс'
+  'slider.location': 'Алматы'
 });
 // Preserve authored Russian slide copy for switching back from Kazakh.
 document.querySelectorAll('.visual-hero [data-i18n]').forEach(el => { i18n.ru[el.dataset.i18n] = el.innerHTML; });
 Object.assign(i18n.ru, {
-  'hero.eyebrow': 'Dis Cleaning · Алматы и Кордай',
+  'hero.eyebrow': 'Dis Cleaning · Алматы',
   'hero.note': 'Выезд в день обращения · Работаем по договору',
   'form.submit': 'Продолжить в WhatsApp',
   'form.note': 'Откроется WhatsApp с готовым текстом. Отправьте сообщение менеджеру, чтобы подтвердить заявку.',
@@ -63,7 +51,7 @@ Object.assign(i18n.ru, {
   'nav.b2b': 'Юрлицам'
 });
 Object.assign(i18n.kz, {
-  'hero.eyebrow': 'Dis Cleaning · Алматы және Қордай',
+  'hero.eyebrow': 'Dis Cleaning · Алматы',
   'hero.note': 'Өтінім күні шығу · Келісімшарт бойынша жұмыс',
   'form.submit': 'WhatsApp-та жалғастыру',
   'form.note': 'WhatsApp дайын мәтінмен ашылады. Өтінімді растау үшін менеджерге хабарламаны жіберіңіз.',

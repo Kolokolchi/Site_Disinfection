@@ -1,6 +1,12 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
-const pages = ['index.html', 'objects.html', ...['services','objects'].flatMap(dir => fs.readdirSync(dir).filter(f => f.endsWith('.html')).map(f => `${dir}/${f}`))];
+const pages = require('../content/routes.json');
+const { publicPath } = require('../lib/public-routes.cjs');
+
+// Keep checks reproducible and never send test traffic to analytics/integrations.
+test.beforeEach(async ({ page }) => {
+  await page.route('https://**/*', route => route.abort());
+});
 
 for (const width of [320, 390, 768, 1024, 1440, 1920]) {
   test(`All public pages fit ${width}px and load their assets`, async ({ page }) => {
@@ -12,7 +18,7 @@ for (const width of [320, 390, 768, 1024, 1440, 1920]) {
       if (response.url().startsWith('http://127.0.0.1') && response.status() >= 400) errors.push(response.url());
     });
     for (const path of pages) {
-      await page.goto(`/${path}`, { waitUntil: 'load' });
+      await page.goto(publicPath(path), { waitUntil: 'load' });
       await expect(page.locator('h1')).toHaveCount(1);
       await expect(page.locator('main')).toHaveCount(1);
       const overflow = await page.evaluate(() => [...document.querySelectorAll('main *,header *,footer *')].filter(el => {
@@ -29,7 +35,7 @@ for (const width of [320, 390, 768, 1024, 1440, 1920]) {
 test('Order selection, validation, encoded WhatsApp handoff and keyboard focus', async ({ page }) => {
   await page.goto('/services/klopy.html');
   await page.evaluate(() => { window.open = (url) => { window.lastHandoff = url; }; });
-  const trigger = page.locator('[onclick^="openServiceModal"]').first();
+  const trigger = page.locator('[data-action="order"][data-service]').first();
   await trigger.click();
   await expect(page.locator('#modalOrder')).toBeVisible();
   await expect(page.locator('#orderService')).toHaveValue('Уничтожение постельных клопов');
@@ -52,30 +58,32 @@ test('Order selection, validation, encoded WhatsApp handoff and keyboard focus',
 
 test('Slider controls, language, reduced motion and object order context', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('[data-slide]:visible')).toHaveCount(1);
-  await page.locator('[data-slide-next]').click();
+  await expect(page.locator('[data-slide].is-active')).toHaveCount(1);
+  await page.locator('[data-slide-to="1"]').click();
   await expect(page.locator('#slide-count')).toHaveText('02 / 03');
-  await expect(page.locator('[data-slide]:visible a')).toHaveAttribute('href','objects.html');
+  await expect(page.locator('[data-slide].is-active a')).toHaveAttribute('href','/objects');
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('#slide-count')).toHaveText('03 / 03');
-  await page.locator('[data-slide-next]').click();
+  await page.locator('[data-slide-to="0"]').click();
   await expect(page.locator('#slide-count')).toHaveText('01 / 03');
-  await page.locator('[data-slide-play]').click();
+  await page.locator('[data-slide-play]').focus();
+  await page.keyboard.press('Enter');
   await expect(page.locator('[data-slide-play]')).toHaveAttribute('aria-pressed','true');
-  await page.locator('[data-slide-next]').click();
+  await page.locator('[data-slide-to="1"]').click();
   await expect(page.locator('[data-slide-play]')).toHaveAttribute('aria-pressed','false');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.locator('[data-slide-play]').click();
+  await page.locator('[data-slide-play]').focus();
+  await page.keyboard.press('Enter');
   await expect(page.locator('[data-slide-play]')).toHaveAttribute('aria-pressed','false');
   await page.locator('header [data-lang="kz"]').click();
-  await expect(page.locator('[data-slide]:visible h2')).toContainText('қонақтарды');
+  await expect(page.locator('[data-slide].is-active h2')).toContainText('Бизнес нысанын');
   await page.locator('header [data-lang="ru"]').click();
-  await expect(page.locator('[data-slide]:visible h2')).toContainText('заботитесь');
+  await expect(page.locator('[data-slide].is-active h2')).toContainText('Санитарная обработка');
   await page.goto('/objects.html');
   await expect(page.locator('.object-card')).toHaveCount(11);
-  await page.locator('.object-card[href="objects/medicine.html"]').click();
+  await page.locator('.object-card[href="/objects/medicine"]').click();
   await expect(page.locator('.facility-row')).toHaveCount(4);
-  await page.locator('.facility-row[href="dentistry.html"]').click();
+  await page.locator('.facility-row[href="/objects/dentistry"]').click();
   await page.locator('.detail-actions button').click();
   await expect(page.locator('#orderService')).toHaveValue('Обработка объекта: Стоматологии');
   await page.evaluate(() => { window.open = url => { window.lastHandoff = url; }; });

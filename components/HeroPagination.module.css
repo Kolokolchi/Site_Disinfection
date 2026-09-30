@@ -1,0 +1,88 @@
+.root {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+
+.root .dot {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a3a3a3;
+  transition: background-color .25s ease, transform .25s ease;
+}
+
+.dot[aria-current="true"]::after {
+  background: #80bd00;
+  transform: scale(1.375);
+}
+
+.dot:hover::after { background: #ddd; }
+.dot[aria-current="true"]:hover::after { background: #92d200; }
+.root button:focus-visible { outline: 2px solid #b9f0ce; outline-offset: 0; border-radius: 4px; }
+
+.hidden, .root .pause {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The reference stays dots-only; keyboard users can reveal the pause control. */
+.root .pause:focus-visible {
+  left: calc(100% + 8px);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  clip-path: none;
+  border: 0;
+  background: #142d40;
+  color: #fff;
+}
+.pause svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.6; }
+.pause[aria-pressed="true"] .playIcon, .pause[aria-pressed="false"] .pauseIcon { display: none; }
+
+/* Bundled with a content hash so an old cached catalog stylesheet cannot break the fade. */
+:global(.visual-hero) .frame {
+  isolation: isolate;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.2s ease-in-out, visibility 0s 1.2s;
+}
+:global(.visual-hero) .frame:first-child:not([aria-hidden]),
+:global(.visual-hero) .frame:global(.is-active) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 1.2s ease-in-out, visibility 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dot::after, :global(.visual-hero) .frame { transition: none; }
+}

@@ -23,3 +23,10 @@ test-results/
 playwright-report/
 artifacts/
 leads.json
+
+# Next.js build and staged assets
+.next/
+out/
+public/
+*.tsbuildinfo
+next-env.d.ts
